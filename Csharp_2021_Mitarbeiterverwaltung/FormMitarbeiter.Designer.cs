@@ -67,6 +67,7 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.btnAbbrechen.TabIndex = 40;
 			this.btnAbbrechen.Text = "Abbrechen";
 			this.btnAbbrechen.UseVisualStyleBackColor = true;
+			this.btnAbbrechen.Click += new System.EventHandler(this.btnAbbrechen_Click);
 			// 
 			// btnSpeichern
 			// 

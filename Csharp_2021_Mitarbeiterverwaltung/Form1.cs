@@ -207,5 +207,67 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 				}
 			}
 		}
+
+		private void mitarbeiterDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			// Objekt für neues Formular "Mitarbeiter" anlegen
+			var formMitarbeiter = new FormMitarbeiter() 
+			{
+				// Eigenschaft zum Datenaustausch zwischen den Formularen beschreiben
+				// Möglichkeit 1: Initialisierungsliste verwenden
+				MitarbeiterInBearbeitung =
+					mitarbeiterBindingSource.Current as Mitarbeiter
+			};
+
+			// Eigenschaft zum Datenaustausch zwischen den Formularen beschreiben
+			// Möglichkeit 2: Eigenschaft des Objekts beschreiben
+			//formMitarbeiter.MitarbeiterInBearbeitung = 
+			//	mitarbeiterBindingSource.Current as Mitarbeiter;
+
+			// Formular anzeigen
+			formMitarbeiter.ShowDialog();
+
+			// Rückgabe des Formulars auswerten & Daten in Datenbank speichern
+			if (formMitarbeiter.DialogResult == DialogResult.OK)
+			{
+				try
+				{
+					// Änderungen in der Datenbank speichern
+					ctx.SaveChanges();
+
+					// Anzeige aktualisieren
+					mitarbeiterBindingSource.DataSource = ctx.Mitarbeiters.ToList();
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+			}
+		}
+
+		private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				// Ausgewählten Mitarbeiter auslesen & casten
+				var ausgewählterMitarbeiter = mitarbeiterBindingSource.Current as Mitarbeiter;
+
+				// Falls kein Mitarbeiter ausgewählt ist: Abbruch
+				if (ausgewählterMitarbeiter == null) return;
+
+				// Ausgewählten Mitarbeiter aus der Datenbank löschen
+				ctx.Mitarbeiters.Remove(ausgewählterMitarbeiter);
+
+				// Datenbank speichern
+				ctx.SaveChanges();
+
+				// Anzeige aktualisieren
+				mitarbeiterBindingSource.DataSource = ctx.Mitarbeiters.ToList();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
 	}
 }

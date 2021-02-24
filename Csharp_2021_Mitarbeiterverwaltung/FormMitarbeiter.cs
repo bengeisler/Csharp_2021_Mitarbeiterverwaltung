@@ -28,6 +28,18 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			cmBoxAbteilung.DataSource = bs.DataSource;
 			cmBoxAbteilung.DisplayMember = "Bezeichnung";
 			cmBoxAbteilung.ValueMember = "AbteilungsNr";
+
+			// Eigenschaften des MitarbeitersInBearbeitung auslesen und 
+			// Steuerelemente damit befüllen
+			txtAdresse.Text = MitarbeiterInBearbeitung.Adresse;
+			txtName.Text = MitarbeiterInBearbeitung.Name;
+			txtOrt.Text = MitarbeiterInBearbeitung.Ort;
+			txtPersonalnummer.Text = MitarbeiterInBearbeitung.PersonalNr.ToString();
+			txtPlz.Text = MitarbeiterInBearbeitung.PLZ;
+			txtStellenbezeichnung.Text = MitarbeiterInBearbeitung.Stellenbezeichnung;
+			txtTelefonnummer.Text = MitarbeiterInBearbeitung.Telefon;
+			txtVorname.Text = MitarbeiterInBearbeitung.Vorname;
+			cmBoxAbteilung.SelectedValue = MitarbeiterInBearbeitung.AbteilungsNr;
 		}
 
 		private void btnSpeichern_Click(object sender, System.EventArgs e)
@@ -73,6 +85,11 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			{
 				MessageBox.Show(ex.Message);
 			}
+		}
+
+		private void btnAbbrechen_Click(object sender, EventArgs e)
+		{
+			Close();
 		}
 	}
 }

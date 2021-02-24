@@ -32,6 +32,7 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.mitarbeiterDataGridView = new System.Windows.Forms.DataGridView();
 			this.txtVorname = new System.Windows.Forms.TextBox();
 			this.txtNachname = new System.Windows.Forms.TextBox();
 			this.btnMitarbeiterInAbteilungÜbernehmen = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.abteilungDataGridView = new System.Windows.Forms.DataGridView();
 			this.txtAbteilungsbezeichnung = new System.Windows.Forms.TextBox();
 			this.txtAbteilungsnummer = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
@@ -49,11 +51,11 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.btnAbteilungBearbeiten = new System.Windows.Forms.Button();
 			this.btnAbteilungHinzufügen = new System.Windows.Forms.Button();
 			this.mitarbeiterBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
@@ -61,8 +63,6 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
 			this.mitarbeiterBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-			this.mitarbeiterDataGridView = new System.Windows.Forms.DataGridView();
-			this.abteilungDataGridView = new System.Windows.Forms.DataGridView();
 			this.mitarbeiterBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,11 +77,11 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterDataGridView)).BeginInit();
 			this.groupBox2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.abteilungDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterBindingNavigator)).BeginInit();
 			this.mitarbeiterBindingNavigator.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterDataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.abteilungDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.abteilungBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -104,6 +104,30 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.groupBox1.TabIndex = 4;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Mitarbeiter";
+			// 
+			// mitarbeiterDataGridView
+			// 
+			this.mitarbeiterDataGridView.AllowUserToAddRows = false;
+			this.mitarbeiterDataGridView.AllowUserToDeleteRows = false;
+			this.mitarbeiterDataGridView.AutoGenerateColumns = false;
+			this.mitarbeiterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.mitarbeiterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+			this.mitarbeiterDataGridView.DataSource = this.mitarbeiterBindingSource;
+			this.mitarbeiterDataGridView.Location = new System.Drawing.Point(12, 19);
+			this.mitarbeiterDataGridView.Name = "mitarbeiterDataGridView";
+			this.mitarbeiterDataGridView.ReadOnly = true;
+			this.mitarbeiterDataGridView.Size = new System.Drawing.Size(1230, 220);
+			this.mitarbeiterDataGridView.TabIndex = 16;
+			this.mitarbeiterDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mitarbeiterDataGridView_CellDoubleClick);
 			// 
 			// txtVorname
 			// 
@@ -203,6 +227,22 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Abteilungen";
 			// 
+			// abteilungDataGridView
+			// 
+			this.abteilungDataGridView.AllowUserToAddRows = false;
+			this.abteilungDataGridView.AllowUserToDeleteRows = false;
+			this.abteilungDataGridView.AutoGenerateColumns = false;
+			this.abteilungDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.abteilungDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+			this.abteilungDataGridView.DataSource = this.abteilungBindingSource;
+			this.abteilungDataGridView.Location = new System.Drawing.Point(12, 17);
+			this.abteilungDataGridView.Name = "abteilungDataGridView";
+			this.abteilungDataGridView.ReadOnly = true;
+			this.abteilungDataGridView.Size = new System.Drawing.Size(1230, 220);
+			this.abteilungDataGridView.TabIndex = 8;
+			// 
 			// txtAbteilungsbezeichnung
 			// 
 			this.txtAbteilungsbezeichnung.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abteilungBindingSource, "Bezeichnung", true));
@@ -290,6 +330,13 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.mitarbeiterBindingNavigator.TabIndex = 6;
 			this.mitarbeiterBindingNavigator.Text = "bindingNavigator1";
 			// 
+			// bindingNavigatorCountItem
+			// 
+			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(44, 22);
+			this.bindingNavigatorCountItem.Text = "von {0}";
+			this.bindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente.";
+			// 
 			// bindingNavigatorMoveFirstItem
 			// 
 			this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -323,16 +370,9 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.bindingNavigatorPositionItem.Text = "0";
 			this.bindingNavigatorPositionItem.ToolTipText = "Aktuelle Position";
 			// 
-			// bindingNavigatorCountItem
-			// 
-			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(44, 22);
-			this.bindingNavigatorCountItem.Text = "von {0}";
-			this.bindingNavigatorCountItem.ToolTipText = "Die Gesamtanzahl der Elemente.";
-			// 
 			// bindingNavigatorSeparator1
 			// 
-			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
 			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
 			// bindingNavigatorMoveNextItem
@@ -355,7 +395,7 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			// 
 			// bindingNavigatorSeparator2
 			// 
-			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
 			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
 			// bindingNavigatorAddNewItem
@@ -376,6 +416,7 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
 			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
 			this.bindingNavigatorDeleteItem.Text = "Löschen";
+			this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
 			// 
 			// mitarbeiterBindingNavigatorSaveItem
 			// 
@@ -385,45 +426,6 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.mitarbeiterBindingNavigatorSaveItem.Name = "mitarbeiterBindingNavigatorSaveItem";
 			this.mitarbeiterBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
 			this.mitarbeiterBindingNavigatorSaveItem.Text = "Daten speichern";
-			// 
-			// mitarbeiterDataGridView
-			// 
-			this.mitarbeiterDataGridView.AllowUserToAddRows = false;
-			this.mitarbeiterDataGridView.AllowUserToDeleteRows = false;
-			this.mitarbeiterDataGridView.AutoGenerateColumns = false;
-			this.mitarbeiterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.mitarbeiterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-			this.mitarbeiterDataGridView.DataSource = this.mitarbeiterBindingSource;
-			this.mitarbeiterDataGridView.Location = new System.Drawing.Point(12, 19);
-			this.mitarbeiterDataGridView.Name = "mitarbeiterDataGridView";
-			this.mitarbeiterDataGridView.ReadOnly = true;
-			this.mitarbeiterDataGridView.Size = new System.Drawing.Size(1230, 220);
-			this.mitarbeiterDataGridView.TabIndex = 16;
-			// 
-			// abteilungDataGridView
-			// 
-			this.abteilungDataGridView.AllowUserToAddRows = false;
-			this.abteilungDataGridView.AllowUserToDeleteRows = false;
-			this.abteilungDataGridView.AutoGenerateColumns = false;
-			this.abteilungDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.abteilungDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-			this.abteilungDataGridView.DataSource = this.abteilungBindingSource;
-			this.abteilungDataGridView.Location = new System.Drawing.Point(12, 17);
-			this.abteilungDataGridView.Name = "abteilungDataGridView";
-			this.abteilungDataGridView.ReadOnly = true;
-			this.abteilungDataGridView.Size = new System.Drawing.Size(1230, 220);
-			this.abteilungDataGridView.TabIndex = 8;
 			// 
 			// mitarbeiterBindingSource
 			// 
@@ -523,13 +525,13 @@ namespace Csharp_2021_Mitarbeiterverwaltung
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterDataGridView)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.abteilungDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterBindingNavigator)).EndInit();
 			this.mitarbeiterBindingNavigator.ResumeLayout(false);
 			this.mitarbeiterBindingNavigator.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterDataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.abteilungDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.mitarbeiterBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.abteilungBindingSource)).EndInit();
 			this.ResumeLayout(false);
